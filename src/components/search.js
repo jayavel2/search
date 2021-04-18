@@ -1,3 +1,4 @@
+
 import React from 'react';
 import axios from 'axios';
 
@@ -41,7 +42,7 @@ class Search extends React.Component {
               <td>{i+1}</td>
               <td>{<img src={list[i].recipe.image} style={{width:"145px",height:"160px"}}/>}</td>
               <td><a href={list[i].recipe.url}>{list[i].recipe.url}</a></td>
-              <td>{list[i].recipe.healthLabels}</td>
+              <td><ol><li>{list[i].recipe.healthLabels}</li></ol></td>
               <td>{list[i].recipe.ingredientLines}</td>  
               <td>{list[i].recipe.calories}</td>
             </tr>
