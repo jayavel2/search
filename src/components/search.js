@@ -3,23 +3,26 @@ import React from 'react';
 import axios from 'axios';
 
 class Search extends React.Component {
-  constructor(){
+  constructor()
+  {
     super();
-    this.state={
+    this.state  = {
       search:'',
       list:[]
     }
-   this.validate=this.validate.bind(this);
+    this.validate  = this.validate.bind(this);
   }
   onChange(event){
     const name    = event.target.name
     const value   = event.target.value;
     this.setState({search:value})
   }
-  validate(){
-    var search  = this.state.search;
-    const axiosthis=this
-    const apiUrl = `https://api.edamam.com/search?app_id=900da95e&app_key=40698503668e0bb3897581f4766d77f9&q=${search}`;
+  //Search Function
+  validate()
+  {
+    var search      = this.state.search;
+    const axiosthis = this
+    const apiUrl    = `https://api.edamam.com/search?app_id=900da95e&app_key=40698503668e0bb3897581f4766d77f9&q=${search}`;
     axios.get(apiUrl,{})
     .then(function (response) {
     // handle success
@@ -28,14 +31,15 @@ class Search extends React.Component {
     .catch(function (error) {
       // handle error
       console.log(error);
-  })
+    })
   }
   
-  render(){
+  render()
+  {
     var list         = this.state.list;
     var searchlist   = []
-    
-    for (var i=0;i<list.length;i++){
+    for (var i=0;i<list.length;i++)
+    {
       searchlist.push(
           <tbody>
             <tr>
@@ -48,16 +52,17 @@ class Search extends React.Component {
             </tr>
           </tbody>
       )
-  }
+    }
+    
     return (
       <div className="container">
-      <center><h2>EDAMAM RECEIPE SEARCH</h2></center><br/>
-      <form className="example">
+        <center><h2>EDAMAM RECEIPE SEARCH</h2></center><br/>
+        <form className="example">
           <input type="text" placeholder="Search.." name="search" value={this.state.search} onChange={(e)=>this.onChange(e)} />
           <button type="button"  onClick={this.validate}><i className="fa fa-search"></i></button>
         </form>
-       <br/><br/>  
-       <table className="table table-bordered">
+        <br/><br/>  
+        <table className="table table-bordered">
           <thead>
             <tr>
               <th>S.No</th>
@@ -67,11 +72,11 @@ class Search extends React.Component {
               <th>IngredientLines</th>
               <th>Calories</th>
             </tr>
-          </thead>      
-          {searchlist}
-      </table>
-    </div>
-  );
-}
+          </thead>    
+            {searchlist}
+        </table>
+      </div>
+    );
+  }
 }
 export default Search;
