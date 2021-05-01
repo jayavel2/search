@@ -1,11 +1,7 @@
-import React from 'react';
-import Search from './components/search.js';
 
-class App extends React.Component {
-  render(){
-  return (
-    <Search/>
-  );
+export default function App(){
+  return <div>
+   Hello world
+    
+  </div>
 }
-}
-export default App;
